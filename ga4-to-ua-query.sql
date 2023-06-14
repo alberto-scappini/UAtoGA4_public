@@ -14,7 +14,7 @@ ga4Raw AS (
   SELECT
   * 
   FROM `{project_id}.{dataset_id}.{table_prefix}*`
-  WHERE PARSE_DATE('%Y%m%d', _table_suffix) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL {prior_days} DAY) AND CURRENT_DATE()
+  WHERE PARSE_DATE('%Y%m%d', CONCAT("2",_table_suffix)) BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL {prior_days} DAY) AND CURRENT_DATE()
 
 ),
 
